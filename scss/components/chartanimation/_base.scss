@@ -1,0 +1,20 @@
+@use './../../core.scss' as *;
+
+div.temp-container{
+    width: fit-content;
+
+    background: linear-gradient(65deg, map-get($colors, blanc), map-get($colors, lighter-blue));
+
+    border-radius: 16px;
+
+    width: 100%;
+    height: 100%;
+
+    img{
+        width: 100%;
+        height: auto;
+
+        right: 5px;
+        bottom: 10px;
+    }
+}

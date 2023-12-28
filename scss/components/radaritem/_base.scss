@@ -1,0 +1,66 @@
+@use "./../../core.scss" as *;
+
+div.radar-item {
+    position: relative;
+    display: grid;
+
+    img.radar-image {
+        width: 100%;
+        height: auto;
+    }
+
+    img#logo-square {
+        position: absolute;
+        align-self: flex-end;
+        justify-self: flex-end;
+
+        padding: 15px;
+
+        width: 32px;
+        height: 32px;
+
+        border-top-left-radius: 16px;
+        border-bottom-right-radius: 16px;
+
+        background-color: map-get($map: $colors, $key: blanc);
+    }
+
+    &.hidden {
+        display: none;
+    }
+
+    div.time-container {
+        position: absolute;
+
+        align-self: flex-start;
+        justify-self: flex-start;
+
+        border-bottom-right-radius: 16px;
+
+        padding: 0 15px;
+
+        &.white-bg {
+            background: none;
+            background-color: map-get($map: $colors, $key: blanc);
+        }
+
+        &.hidden {
+            display: none;
+        }
+
+        p {
+            color: map-get($map: $colors, $key: text);
+            margin: 0;
+        }
+
+        p.time-heading {
+            font-size: map-get($map: $sizes, $key: normal-font-size);
+            font-weight: map-get($map: $weights, $key: light);
+        }
+
+        p.time {
+            font-size: map-get($map: $sizes, $key: smaller-font-size);
+            font-weight: map-get($map: $weights, $key: phat);
+        }
+    }
+}

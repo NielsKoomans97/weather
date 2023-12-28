@@ -1,0 +1,519 @@
+$sizes: (
+    "big-font-size": 96px,
+    "medium-font-size": 42px,
+    "normal-font-size": 42px,
+    "smaller-font-size": 36px,
+    "smallest-font-size": 16px,
+    "fontawesome-icon": 28px
+);
+
+$weights: (
+    "light": 300,
+    "normal": 400,
+    "medium": 500,
+    "semibold": 600,
+    "bold": 700,
+    "bolder": 800,
+    "phat": 900,
+    "obese": 1000
+);
+
+$colors: (
+    "warning-yellow": #ede131,
+    "warning-orange": #f5b92c,
+    "warning-red": #cf3d3d
+);
+
+$yellow: (
+    "darker": #e5d60e,
+    "dark": #cec000
+);
+
+$orange: (
+    "darker": #f2a900,
+    "dark": #de9c00
+);
+
+$red: (
+    "darker": #c62121,
+    "dark": #ad2323
+);
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900;9..40,1000&display=swap");
+* {
+    font-family: "DM Sans", sans-serif;
+
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: transparent;
+    padding: 15px;
+}
+
+div.container {
+    display: grid;
+
+    grid-template-columns: auto;
+    grid-template-rows: 35vh auto;
+
+    width: 95vw;
+    height: 95vh;
+
+    border-radius: 24px;
+
+    background-color: #fffffc;
+
+    box-shadow: 0px 0px 20px 4px transparentize($color: #000000, $amount: 0.75);
+}
+
+div.header {
+    display: grid;
+
+    align-items: center;
+    padding: 35px 0;
+
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: 15% auto;
+
+    #location {
+        grid-column: 1;
+        grid-row: 1;
+
+        justify-self: flex-end;
+    }
+
+    #update-time {
+        grid-column: 2;
+        grid-row: 1;
+
+        justify-self: flex-start;
+        margin-left: 5px;
+    }
+
+    #temperature-actual {
+        font-size: map-get($map: $sizes, $key: big-font-size);
+        font-weight: map-get($map: $weights, $key: semibold);
+        text-align: center;
+        margin: 0;
+
+        grid-row: 2;
+    }
+
+    .temperature-container {
+        display: grid;
+
+        grid-template-columns: repeat(2, 50%);
+        grid-template-rows: 40% 60%;
+
+        justify-items: center;
+
+        grid-row: 2;
+
+        i.fa-hand,
+        i.fa-road {
+            font-size: map-get($map: $sizes, $key: fontawesome-icon);
+        }
+
+        i.fa-hand {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        i.fa-road {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        p {
+            margin: 10px 0;
+            font-weight: map-get($map: $sizes, $key: semibold);
+            font-size: map-get($map: $weights, $key: normal-font-size);
+        }
+
+        #temperature-feel {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        #temperature-ground {
+            grid-column: 2;
+            grid-row: 2;
+        }
+    }
+}
+
+div.data-table {
+    border-collapse: collapse;
+
+    height: -webkit-fill-available;
+
+    i {
+        font-size: map-get($map: $sizes, $key: fontawesome-icon);
+    }
+
+    .table-head {
+        display: grid;
+
+        grid-template-columns: repeat(3, calc(100% / 3));
+
+        height: 50px;
+
+        justify-items: center;
+
+        margin-bottom: 50px;
+
+        i {
+            border-bottom: #d9d9d9 3px solid;
+
+            padding-bottom: 5px;
+        }
+
+        .buienradar-logo {
+            border-radius: 50%;
+
+            height: 48px;
+        }
+    }
+
+    .table-body {
+        display: grid;
+
+        grid-template-columns: repeat(3, calc(100% / 3));
+        grid-template-rows: repeat(2, 50%);
+
+        height: 75%;
+    }
+
+    .table-item {
+        display: flex;
+        flex-direction: column;
+
+        justify-content: flex-start;
+        align-items: center;
+        justify-items: center;
+
+        width: 100%;
+        height: 100%;
+
+        &:nth-child(2),
+        &:nth-child(5) {
+            border-left: #f1f1f1 2px solid;
+            border-right: #f1f1f1 2px solid;
+        }
+
+        p {
+            font-weight: map-get($map: $weights, $key: semibold);
+            font-size: map-get($map: $sizes, $key: normal-font-size);
+            margin: 10px 0 0 0;
+        }
+
+        div.rainfall {
+            display: grid;
+
+            grid-template-columns: 20% auto;
+            grid-template-rows: repeat(2, 50%);
+            column-gap: 15px;
+
+            justify-items: flex-end;
+
+            p.smallest {
+                font-size: map-get($map: $sizes, $key: smallest-font-size);
+            }
+
+            #rainFall1Hour,
+            #rainFall24Hour {
+                justify-self: flex-start;
+
+                font-weight: map-get($map: $weights, $key: bold);
+            }
+        }
+    }
+}
+
+div.radar-container {
+    display: grid;
+
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+
+    width: auto;
+    height: 98vh;
+
+    padding: 10px;
+
+    border-radius: 24px;
+
+    background-color: #fffffc;
+
+    img,
+    iframe {
+        width: 100%;
+
+        overflow: hidden;
+    }
+
+    .knmi-radar-container {
+        position: relative;
+        display: grid;
+    }
+
+    #knmi-radar {
+        border-top-right-radius: 18px;
+        border-top-left-radius: 18px;
+    }
+
+    #red-rectangle {
+        position: absolute;
+
+        border-top: 2.5px darkcyan solid;
+        border-left: 2.5px darkcyan solid;
+
+        align-self: center;
+        justify-self: center;
+
+        height: 5px;
+        width: 5px;
+
+        top: 65%;
+        left: 44%;
+
+        padding: 2px;
+
+        transform: rotate(15deg);
+    }
+
+    #red-circle {
+        border: 2.5px darkcyan solid;
+        border-radius: 50%;
+
+        width: 5px;
+        height: 5px;
+    }
+
+    iframe {
+        border-bottom-left-radius: 18px;
+        border-bottom-right-radius: 18px;
+
+        outline: none;
+        border: none;
+
+        height: 700px;
+
+        * {
+            overflow: hidden;
+        }
+
+        .topdiv {
+            display: none;
+        }
+    }
+}
+
+div.temp-container {
+    padding: 10px;
+
+    background: linear-gradient(65deg, white, rgb(208, 233, 255));
+
+    border-radius: 24px;
+
+    background-color: #fffffc;
+}
+
+div.warning-container {
+    display: flex;
+
+    flex-direction: row;
+
+    border-radius: 16px;
+
+    &.hidden {
+        display: none;
+    }
+
+    &.YELLOW {
+        background-color: map-get($map: $colors, $key: warning-yellow);
+
+        i.fa-warning {
+            background-color: map-get($map: $yellow, $key: dark);
+        }
+    }
+
+    &.ORANGE {
+        background-color: map-get($map: $colors, $key: warning-orange);
+
+        i.fa-warning {
+            background-color: map-get($map: $orange, $key: dark);
+        }
+    }
+
+    &.RED {
+        background-color: map-get($map: $colors, $key: warning-red);
+
+        i.fa-warning {
+            background-color: map-get($map: $red, $key: dark);
+        }
+    }
+
+    img {
+        background-color: #ffffff;
+
+        border-top-left-radius: 16px;
+        border-bottom-left-radius: 16px;
+    }
+
+    div.warning-details {
+        display: grid;
+
+        grid-template-columns: auto;
+        grid-template-rows: 80px auto;
+
+        width: 100%;
+
+        i.fa-warning {
+            position: absolute;
+
+            align-self: flex-end;
+            justify-self: flex-end;
+
+            font-size: map-get($map: $sizes, $key: smaller-font-size);
+
+            padding: 20px;
+            border-top-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+        }
+
+        p#warning-title {
+            font-size: map-get($map: $sizes, $key: normal-font-size);
+            font-weight: map-get($map: $weights, $key: bold);
+
+            margin: 10px;
+        }
+
+        p#warning-description {
+            font-size: map-get($map: $sizes, $key: smaller-font-size);
+
+            word-break: break-word;
+            margin: 10px;
+        }
+    }
+}
+
+.radar-item {
+    display: grid;
+    position: relative;
+
+    &.hidden {
+        display: none;
+    }
+
+    .time-container {
+        position: absolute;
+
+        align-self: flex-start;
+
+        &.white-bg {
+            background-color: white;
+
+            border-bottom-right-radius: 16px;
+        }
+
+        p {
+            margin: 2px;
+        }
+    }
+
+    .time-heading {
+        font-size: map-get($map: $sizes, $key: normal-font-size);
+        font-weight: map-get($map: $sizes, $key: normal);
+
+        padding-right: 10px;
+
+        &.white {
+            font-size: map-get($map: $sizes, $key: normal-font-size);
+            font-weight: map-get($map: $sizes, $key: bolder);
+
+            color: #ffffff;
+            -webkit-text-stroke-width: 1.2px;
+            -webkit-text-stroke-color: black;
+        }
+    }
+
+    .time {
+        margin: 0;
+
+        font-weight: map-get($map: $sizes, $key: phat);
+        font-size: map-get($map: $sizes, $key: smaller-font-size);
+
+        color: #000000;
+
+        margin-left: 2px;
+
+        &.white {
+            font-size: map-get($map: $sizes, $key: normal-font-size);
+            font-weight: map-get($map: $sizes, $key: obese);
+
+            color: #ffffff;
+            -webkit-text-stroke-width: 1.2px;
+            -webkit-text-stroke-color: black;
+        }
+    }
+
+    img {
+        width: 100%;
+        margin-top: 30px;
+
+        &[id="satelliet"] {
+            margin-top: 0;
+        }
+
+        &[id="logo-square"] {
+            position: absolute;
+
+            align-self: flex-end;
+            justify-self: flex-end;
+
+            border-radius: 50%;
+
+            height: 48px;
+            width: auto;
+
+            z-index: 999;
+
+            margin-bottom: 15px;
+            margin-right: 15px;
+
+            padding: 5px;
+
+            background-color: white;
+
+            -webkit-box-shadow: inset 0px 0px 20px -10px rgb(0, 0, 0);
+            -moz-box-shadow: inset 0px 0px 20px -10px rgb(0, 0, 0);
+            box-shadow: inset 0px 0px 20px -10px rgb(0, 0, 0);
+        }
+
+        overflow: hidden;
+    }
+}
+
+body.page {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+
+    div.temp-container {
+        align-self: flex-end;
+        justify-self: flex-start;
+    }
+
+    div.warning-container {
+        align-self: flex-end;
+        justify-self: flex-start;
+    }
+
+    div.radar-container {
+        align-self: flex-start;
+        justify-self: flex-end;
+    }
+}
