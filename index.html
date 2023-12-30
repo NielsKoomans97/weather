@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="js/main.js" type="module" defer></script>
+        <script src="https://kit.fontawesome.com/9efe11bfbd.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="scss/style.css">
+    </head>
+<body class="page">
+    <div class="radar-container">
+        <div class="knmi-radar-container">
+            <img id="knmi-radar"
+                src="https://cdn.knmi.nl/knmi/map/page/weer/actueel-weer/neerslagradar/WWWRADARLGT_loop.gif">
+            <div id="red-rectangle">
+                <div id="red-circle">&nbsp;</div>
+            </div>
+
+        </div>
+
+        <div class="radar-item padding" id="satellite-item">
+            <img class="radar-image" src="https://processing-cdn.buienradar.nl/processing/world/satellite/europe-africa/combined/NL/202312272130.jpg">
+            <div class="time-container white-bg">
+                <p class="time-heading">Satelliet</p>
+                <p class="time" data-tag="Satelliet">00:00</p>
+            </div>
+            <img id="logo-square" class="top-left" src="Buienradar.png">
+        </div>
+        <iframe scrolling="no" src="https://map.blitzortung.org/#1/10.3/8">
+
+        </iframe>
+    </div>
+    <div class="temp-container">
+        <div class="radar-item" id="temperature">
+            <img src="https://processing-cdn.buienradar.nl/processing/nl/weathermaps/Temperature/default/202312280020.png">
+            <div class="time-container">
+                <p class="time-heading">Temperatuur</p>
+                <p class="time" data-tag="Temperatuur">00:00</p>
+            </div>
+            <img id="logo-square" class="top-left bottom-right lighter-blue" src="Buienradar.png">
+        </div>
+        <div class="radar-item hidden" id="wind">
+            <img>
+            <div class="time-container">
+                <p class="time-heading">Windkracht en richting</p>
+                <p class="time" data-tag="Windkracht en -richting">00:00</p>
+            </div>
+            <img id="logo-square" class="top-left bottom-right lighter-blue" src="Buienradar.png">
+
+        </div>
+        <div class="radar-item hidden" id="neerslag-24u">
+            <img>
+            <div class="time-container">
+                <p class="time-heading">Neerslag laatste 24u</p>
+                <p class="time" data-tag="Neerslag laatste 24u">00:00</p>
+            </div>
+            <img id="logo-square" class="top-left bottom-right lighter-blue" src="Buienradar.png">
+        </div>
+    </div>
+    <div class="warning-container">
+        <img id="warning-overview">
+        <div class="warning-details">
+            <p id="warning-title"></p>
+            <div class="time-window-container">
+                <p id="warning-from"></p>
+                <p id="warning-to"></p>
+            </div>
+            <p id="warning-description"></p>
+            <p id="time"></p>
+            <i class="fa-solid fa-warning"></i>
+        </div>
+    </div>
+
+</body>
+</html>

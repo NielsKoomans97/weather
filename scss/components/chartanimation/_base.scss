@@ -1,20 +1,23 @@
-@use './../../core.scss' as *;
+@use "./../../core.scss" as *;
 
-div.temp-container{
+div.temp-container {
+    display: flex;
     width: fit-content;
 
     background: linear-gradient(65deg, map-get($colors, blanc), map-get($colors, lighter-blue));
 
     border-radius: 16px;
+    padding: 5px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
 
-    width: 100%;
-    height: 100%;
-
-    img{
+    img {
         width: 100%;
         height: auto;
+    }
 
-        right: 5px;
-        bottom: 10px;
+    img#logo-square {
+        width: 32px;
+        height: 32px;
     }
 }

@@ -1,10 +1,11 @@
 $sizes: (
     "big-font-size": 96px,
-    "medium-font-size": 56px,
-    "normal-font-size": 42px,
-    "smaller-font-size": 30px,
-    "smallest-font-size": 24px,
-    "fontawesome-icon": 28px
+    "medium-font-size": 0.009vh,
+    "normal-font-size": 2vh,
+    "smaller-font-size": 1.6vh,
+    "smallest-font-size": 1.2vh,
+    "me-tiny":0.9vh,
+    "fontawesome-icon": 1.5vh
 );
 
 $weights: (
@@ -24,7 +25,9 @@ $colors: (
     "warning-red": #cf3d3d,
     "text": #1a1a1a,
     "blanc": #ffffff,
-    "lighter-blue": #75c1ff,
+    "lighter-blue": #b8d9f7,
+    "darker-lighter-blue":#e6f2fc,
+    "text-gray": #777676,
 );
 
 $yellow: (

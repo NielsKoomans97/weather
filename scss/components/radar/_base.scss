@@ -28,26 +28,33 @@ div.radar-container {
             align-self: center;
             justify-self: center;
 
-            width: 25px;
-            height: 25px;
+            width: 20px;
+            height: 20px;
 
-            border-top: map-get($map: $colors, $key: text) 1px solid;
-            border-left: map-get($map: $colors, $key: text) 1px solid;
+            top: 61%;
+            left: 41%;
+
+            border-top: map-get($map: $colors, $key: text) 3px solid;
+            border-left: map-get($map: $colors, $key: text) 3px solid;
+
+            padding: 3px;
 
             div#red-circle {
                 width: 20px;
                 height: 20px;
 
-                border: map-get($map: $colors, $key: text) 1px solid;
+                border: map-get($map: $colors, $key: text) 3px solid;
                 border-radius: 50%;
             }
         }
     }
 
     iframe{
-        min-height: 400px;
-
+        height: 700px;
         border-bottom-left-radius: 16px;
         border-bottom-right-radius: 16px;
+
+        border:none;
+        outline: none;
     }
 }

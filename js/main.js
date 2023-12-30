@@ -39,6 +39,13 @@ if (HasElement('temperature')) {
 
 if (HasElement('warning-overview')){
     new WeatherWarnings();
+
+    setInterval(() => {
+        const time = document.querySelector('#time');
+        const now = new Date();
+
+        time.innerText = `${FixTimeInt(now.getHours())}:${FixTimeInt(now.getMinutes())}:${FixTimeInt(now.getSeconds())}`
+    }, 1000);
 }
 
 setInterval(() => {
@@ -55,4 +62,12 @@ function HasElement(element) {
     const el = document.getElementById(element);
 
     return el != null;
+}
+
+function FixTimeInt(timeInt){
+    if (timeInt < 10){
+        return `0${timeInt}`;
+    }
+
+    return timeInt;
 }

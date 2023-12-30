@@ -3,31 +3,29 @@
 body {
     display: grid;
 
-    grid-template-rows: repeat(12, calc(calc(100vh - 90px) / 12));
-    grid-template-columns: repeat(15, calc(calc(100vw - 90px) / 15));
+    grid-template-rows: repeat(24, calc(calc(100vh - calc(5px * 24)) / 24));
+    grid-template-columns: repeat(30, calc(calc(100vw - calc(5px * 30)) / 30));
 
     box-sizing: border-box;
 
     column-gap: 5px;
     row-gap: 5px;
 
-    padding: 15px;
-
     height: 100vh;
     overflow: hidden;
 
     div.radar-container {
-        grid-column: 13 / span 3;
-        grid-row: 1 / span 9;
+        grid-column: 26 / span 5;
+        grid-row: 1 / span 20 ;
     }
 
     div.temp-container {
-        grid-column: 1 / span 3;
-        grid-row: 8 / span 5;
+        grid-column: 1 / span 5;
+        grid-row: 16 / span 9;
     }
 
     div.warning-container {
-        grid-column: 4 / span 2;
-        grid-row: 8 / span 5;
+        grid-column: 6 / span 4;
+        grid-row: 16 / span 9;
     }
 }
